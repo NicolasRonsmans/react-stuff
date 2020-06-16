@@ -1,0 +1,4 @@
+{
+  "files": [],
+  "references": [{ "path": "./responsive/tsconfig.build.json" }]
+}

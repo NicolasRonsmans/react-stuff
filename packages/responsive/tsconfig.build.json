@@ -1,0 +1,15 @@
+{
+  "extends": "../tsconfig.build",
+  "compilerOptions": {
+    "baseUrl": "src",
+    "outDir": "build",
+    "paths": {
+      "*": ["*"]
+    },
+    "rootDir": "src",
+    "types": ["node", "react", "resize-observer-browser"]
+  },
+  "include": ["src/**/*.ts", "src/**/*.tsx"],
+  "exclude": ["src/**/*.test.ts", "src/**/*.test.tsx"],
+  "references": []
+}
