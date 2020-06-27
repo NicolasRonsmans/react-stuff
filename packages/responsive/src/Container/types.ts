@@ -1,8 +1,8 @@
-import { ResponsiveHashMap, Margin, Width, Breakpoints } from '../types';
+import { ResponsiveHashMap, Space, Width, Breakpoints } from '../types';
 
 export interface Overrides {
-  gutters?: ResponsiveHashMap<Margin> | Margin;
-  margins?: ResponsiveHashMap<Margin> | Margin;
+  gutters?: ResponsiveHashMap<Space> | Space;
+  margins?: ResponsiveHashMap<Space> | Space;
   widths?: ResponsiveHashMap<Width> | Width;
 }
 
@@ -26,9 +26,9 @@ export interface ConsumerProps extends Props {
   overrides: Overrides;
 }
 
-export interface Values {
-  gutter: Margin;
-  margin: Margin;
+export interface BreakpointValues {
+  gutter: Space;
+  margin: Space;
   minWidth: Width;
   width: Width;
 }

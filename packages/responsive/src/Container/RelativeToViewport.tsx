@@ -1,6 +1,7 @@
 import React, { useMemo } from 'react';
 
-import { useBreakpoints } from '../hooks';
+import { useBreakpoints } from '../Provider/hooks';
+
 import { ConsumerProps } from './types';
 import { overrideAll, generateAbsoluteResponsiveness } from './utils';
 import { Container } from './styles';
@@ -15,10 +16,11 @@ function ContainerRelativeToViewport({ children, overrides, isCentered }: Consum
 
     return { responsiveness, hasGutters, values };
   }, [breakpoints, overrides]);
+  const props = { children, values };
 
   return (
     <Container responsiveness={responsiveness} isCentered={isCentered}>
-      {hasGutters && <Grid values={values}>{children}</Grid>}
+      {hasGutters && <Grid {...props} />}
       {!hasGutters && children}
     </Container>
   );

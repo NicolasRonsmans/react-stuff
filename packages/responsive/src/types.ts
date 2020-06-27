@@ -1,9 +1,9 @@
+export type Space = string | number;
 export type Width = string | number;
-export type Margin = string | number;
 
 export interface Breakpoint {
-  gutter?: Margin;
-  margin?: Margin;
+  gutter?: Space;
+  margin?: Space;
   minWidth?: Width;
   name: string;
   width?: Width;

@@ -1,18 +1,20 @@
 import React, { useMemo } from 'react';
 
-import { Values } from '../types';
+import { BreakpointValues } from '../types';
+
 import { Container } from './styles';
 import { generateAbsoluteResponsiveness } from './utils';
 
 interface GridProps {
   children: React.ReactNode;
-  values: Values[];
+  values: BreakpointValues[];
 }
 
 function GridRelativeToViewport({ children, values }: GridProps): JSX.Element {
   const responsiveness = useMemo(() => generateAbsoluteResponsiveness(values), [values]);
+  const props = { children, responsiveness };
 
-  return <Container responsiveness={responsiveness}>{children}</Container>;
+  return <Container {...props} />;
 }
 
 export default GridRelativeToViewport;

@@ -7,7 +7,7 @@
       "*": ["*"]
     },
     "rootDir": "src",
-    "types": ["node", "react", "resize-observer-browser"]
+    "types": ["node", "react", "resize-observer-browser", "styled-components"]
   },
   "include": ["src/**/*.ts", "src/**/*.tsx"],
   "exclude": ["src/**/*.test.ts", "src/**/*.test.tsx"],

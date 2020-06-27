@@ -1,10 +1,9 @@
 import React from 'react';
-import { isArray } from 'lodash';
 
-import { Breakpoints } from '../types';
-import { BOOTSTRAP_BREAKPOINTS } from '../constants';
-import { useBreakpoint } from '../hooks';
-import { getValueFromBreakpoint } from '../utils';
+import { useBreakpoint } from '../Provider/hooks';
+import { isArray, getValueFromBreakpoint } from '../utils';
+
+import { CreateToggleComponentReturn, ToggleComponentProps } from './types';
 
 type Inline = string | number;
 
@@ -49,13 +48,7 @@ function ResponsiveToggle({ children, whitelist, blacklist, inline }: Responsive
   return null;
 }
 
-interface ToggleComponentProps {
-  children: React.ReactNode;
-}
-
-type CreateToggleComponentReturn = (props: ToggleComponentProps) => JSX.Element | null;
-
-function createToggleComponent(value: string): CreateToggleComponentReturn {
+export function createToggleComponent(value: string): CreateToggleComponentReturn {
   return function ToggleComponent({ children }: ToggleComponentProps): JSX.Element | null {
     const breakpoint = useBreakpoint();
 
@@ -65,12 +58,6 @@ function createToggleComponent(value: string): CreateToggleComponentReturn {
 
     return <>{children}</>;
   };
-}
-
-export function generateToggleComponentsFromBreakpoints(
-  breakpoints: Breakpoints = BOOTSTRAP_BREAKPOINTS
-): CreateToggleComponentReturn[] {
-  return breakpoints.map((bp) => createToggleComponent(bp.name));
 }
 
 export default ResponsiveToggle;

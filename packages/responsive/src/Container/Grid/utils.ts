@@ -1,7 +1,8 @@
-import { Margin } from '../../types';
-import { Values } from '../types';
+import { Space } from '../../types';
 
-export function generateRelativeResponsiveness(gutter: Margin = 0): string {
+import { BreakpointValues } from '../types';
+
+export function generateRelativeResponsiveness(gutter: Space = 0): string {
   return `
     margin: calc(${gutter} / -2);
     width: calc(100% + ${gutter});
@@ -12,7 +13,7 @@ export function generateRelativeResponsiveness(gutter: Margin = 0): string {
   `;
 }
 
-export function generateAbsoluteResponsiveness(values: Values[]): string {
+export function generateAbsoluteResponsiveness(values: BreakpointValues[]): string {
   return values.reduce((str, value) => {
     if (!value.minWidth || !value.width) {
       return `

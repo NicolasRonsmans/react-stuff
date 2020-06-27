@@ -1,6 +1,6 @@
 import { Breakpoints } from './types';
 
-export const BOOTSTRAP_BREAKPOINTS: Breakpoints = [
+export const DEFAULT_BREAKPOINTS: Breakpoints = [
   {
     name: 'xsmall',
     gutter: '14px',
@@ -31,7 +31,7 @@ export const BOOTSTRAP_BREAKPOINTS: Breakpoints = [
     gutter: '24px',
   },
 ];
-export const BOOTSTRAP_BREAKPOINTS_WITHOUT_MOBILE_MARGIN: Breakpoints = BOOTSTRAP_BREAKPOINTS.map((bp, index) => {
+export const DEFAULT_BREAKPOINTS_WITHOUT_MOBILE_MARGIN: Breakpoints = DEFAULT_BREAKPOINTS.map((bp, index) => {
   if (index !== 0) {
     return bp;
   }

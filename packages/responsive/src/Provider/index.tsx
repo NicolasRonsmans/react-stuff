@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 
-import { BOOTSTRAP_BREAKPOINTS } from '../constants';
+import { DEFAULT_BREAKPOINTS } from '../constants';
 import { useSortedAndReversedBreakpoints } from '../hooks';
+
 import { ResponsiveProviderProps } from './types';
 import { Context, ContextValues } from './context';
 import { getBreakpointReversedIndexFromWidth } from './utils';
@@ -10,12 +11,11 @@ import RelativeToParent from './RelativeToParent';
 
 function ResponsiveProvider({
   children,
-  breakpoints = BOOTSTRAP_BREAKPOINTS,
+  breakpoints = DEFAULT_BREAKPOINTS,
   isRelativeToParent = false,
 }: ResponsiveProviderProps): JSX.Element {
-  // TODO: Validate and default props.breakpoints if necessary
   if (breakpoints.length === 0) {
-    breakpoints = BOOTSTRAP_BREAKPOINTS;
+    breakpoints = DEFAULT_BREAKPOINTS;
   }
 
   const shouldUseDefaultBehaviour = !isRelativeToParent || !ResizeObserver;

@@ -1,8 +1,9 @@
 import React, { useMemo } from 'react';
 
+import { useBreakpoint } from '../Provider/hooks';
 import { UnitSizes, UnitOffsets } from '../types';
-import { useBreakpoint } from '../hooks';
 import { getValueFromBreakpoint } from '../utils';
+
 import { generateUnitResponsiveness } from './utils';
 import { Container } from './styles';
 
@@ -20,8 +21,9 @@ function ResponsiveUnit({ children, sizes, offsets }: ResponsiveUnitProps): JSX.
 
     return generateUnitResponsiveness(size, offset);
   }, [breakpoint, sizes, offsets]);
+  const props = { children, responsiveness };
 
-  return <Container responsiveness={responsiveness}>{children}</Container>;
+  return <Container {...props} />;
 }
 
 export default ResponsiveUnit;

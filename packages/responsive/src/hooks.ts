@@ -1,9 +1,9 @@
-import { useContext, useRef, useState, useEffect, useMemo } from 'react';
+import { useRef, useState, useEffect, useMemo } from 'react';
 
-import { Context, ContextValues } from './Provider/context';
-import { Breakpoints, Breakpoint } from './types';
+import { Breakpoints } from './types';
 import { parseToInt } from './utils';
 
+// PRIVATE
 interface UseSortedAndReversedBreakpointsReturn {
   sortedBreakpoints: Breakpoints;
   reversedBreakpoints: Breakpoints;
@@ -36,28 +36,7 @@ export function useSortedAndReversedBreakpoints(breakpoints: Breakpoints): UseSo
   }, [breakpoints]);
 }
 
-export function useWidth(): number {
-  const { width } = useContext(Context);
-
-  return width;
-}
-
-export function useBreakpoint(): Breakpoint {
-  const { breakpointIndex, breakpoints } = useContext(Context);
-
-  return breakpoints[breakpointIndex];
-}
-
-export function useBreakpoints(): Breakpoints {
-  const { breakpoints } = useContext(Context);
-
-  return breakpoints;
-}
-
-export function useResponsiveContext(): ContextValues {
-  return useContext(Context);
-}
-
+// PUBLIC
 interface UseRefDimensionsReturn<T> {
   ref: React.RefObject<T>;
   dimensions: {

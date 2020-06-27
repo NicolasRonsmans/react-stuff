@@ -4,12 +4,13 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/NicolasRonsmans/react-stuff.git"
+    "url": "https://github.com/NicolasRonsmans/react-stuff.git",
+    "directory": "packages/responsive"
   },
   "private": false,
   "main": "build/index",
   "types": "build/index.d.ts",
-  "version": "1.0.0",
+  "version": "0.2.0",
   "scripts": {
     "lint": "yarn lint:types && yarn lint:eslint && yarn lint:format",
     "lint:eslint": "eslint ./src --ext .ts,.tsx",
@@ -18,13 +19,11 @@
     "test": "jest --passWithNoTests",
     "test:watch": "yarn test --watchAll"
   },
-  "dependencies": {
+  "devDependencies": {
+    "@types/react": "~16.9.23",
     "@types/resize-observer-browser": "0.1.3",
     "@types/styled-components": "^5.1.0",
+    "react": "~16.13.0",
     "styled-components": "^5.1.1"
-  },
-  "peerDependencies": {
-    "@types/react": "~16.9.23",
-    "react": "~16.13.0"
   }
 }
