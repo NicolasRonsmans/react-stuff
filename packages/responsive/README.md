@@ -6,7 +6,7 @@ https://react-stuff.netlify.app/
 
 This is the root component. It's responsible of:
 
-- listening to resize event
+- listening to resize events
 - providing breakpoints/current breakpoint values to all its descendants
 
 ```
@@ -15,13 +15,29 @@ import { ResponsiveProvider } from '@react-stuff/responsive';
 
 ## Responsive Container
 
-- applies the `width` value based on the current breakpoint
+- applies a `width` value based on the current breakpoint
+- will include `ResponsiveProvider` if `breakpoints` or `isRelativeToParent` are directly passed as props
+
+```
+import { ResponsiveContainer } from '@react-stuff/responsive';
+```
+
+## Responsive Grid
+
 - applies the `gutter` value to its children
-- will include `ResponsiveProvider` if `breakpoints` are directly passed to its props
+- will include `ResponsiveContainer` (and `ResponsiveProvider`) if `breakpoints`, `margins`, `widths`, `isRelativeToParent` or `isCentered` are directly passed as props
+
+```
+import { ResponsiveGrid } from '@react-stuff/responsive';
+```
 
 ## Responsive Unit
 
-This is meant to be used within `ResponsiveContainer` with a `gutter`:
+Generally used within a `block`/`flex` container.
 
 - applies `sizes` as a relative width based on its parent
 - applies `offsets` as a relative margin based on its parent
+
+```
+import { ResponsiveUnit } from '@react-stuff/responsive';
+```

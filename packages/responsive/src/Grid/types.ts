@@ -5,4 +5,5 @@ export interface ContainerProps {
   children: React.ReactNode;
   overrides: Overrides;
 }
+
 export type ResponsiveGridProps = ResponsiveContainerProps;

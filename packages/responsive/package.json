@@ -10,7 +10,7 @@
   "private": false,
   "main": "build/index",
   "types": "build/index.d.ts",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "scripts": {
     "lint": "yarn lint:types && yarn lint:eslint && yarn lint:format",
     "lint:eslint": "eslint ./src --ext .ts,.tsx",
