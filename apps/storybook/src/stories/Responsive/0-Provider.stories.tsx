@@ -6,6 +6,7 @@ import {
   DEFAULT_BREAKPOINTS_WITHOUT_MOBILE_MARGIN,
 } from '@react-stuff/responsive';
 
+import getTitle from './getTitle';
 import { Wrapper, Viewport, Parent } from './styles';
 
 function Inner() {
@@ -56,5 +57,5 @@ export function RelativeToParent(): JSX.Element {
 }
 
 export default {
-  title: 'Responsive/Provider',
+  title: getTitle('Provider'),
 };

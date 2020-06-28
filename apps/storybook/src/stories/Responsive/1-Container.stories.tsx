@@ -7,6 +7,7 @@ import {
   DEFAULT_BREAKPOINTS_WITHOUT_MOBILE_MARGIN,
 } from '@react-stuff/responsive';
 
+import getTitle from './getTitle';
 import { Wrapper, Viewport, Parent, Pink, Blue } from './styles';
 
 function Inner() {
@@ -85,5 +86,5 @@ export function Nested(): JSX.Element {
 }
 
 export default {
-  title: 'Responsive/Container',
+  title: getTitle('Container'),
 };

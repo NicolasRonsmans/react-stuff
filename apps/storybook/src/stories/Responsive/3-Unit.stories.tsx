@@ -7,6 +7,7 @@ import {
   DEFAULT_BREAKPOINTS_WITHOUT_MOBILE_MARGIN,
 } from '@react-stuff/responsive';
 
+import getTitle from './getTitle';
 import { Wrapper, Viewport, Parent, Pink, Blue } from './styles';
 
 export function RelativeToViewport(): JSX.Element {
@@ -175,5 +176,5 @@ export function RelativeToParent(): JSX.Element {
 }
 
 export default {
-  title: 'Responsive/Unit',
+  title: getTitle('Unit'),
 };
