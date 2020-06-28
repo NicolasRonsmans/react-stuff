@@ -1,4 +1,4 @@
-# React Stuff - Responsive
+# React Stuff - Responsive ![npm (scoped)](https://img.shields.io/npm/v/@react-stuff/responsive)
 
 [Demo](https://43qsk.csb.app/)
 
