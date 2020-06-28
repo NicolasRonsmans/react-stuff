@@ -1,6 +1,6 @@
-# React Stuff - Responsive ![npm (scoped)](https://img.shields.io/npm/v/@react-stuff/responsive)
+# React Stuff - Responsive ![npm (scoped)](https://img.shields.io/npm/v/@react-stuff/responsive) ![Netlify](https://img.shields.io/netlify/84a47c5b-65a8-4a7e-a549-02a849bc1bf5)
 
-[Demo](https://43qsk.csb.app/)
+https://react-stuff.netlify.app/
 
 ## Responsive Provider
 
