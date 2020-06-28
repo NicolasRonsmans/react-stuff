@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useContext } from 'react';
+import { useEffect, useContext } from 'react';
 
 import { Breakpoint, Breakpoints } from '../types';
 
@@ -7,9 +7,7 @@ import { Context, ContextValues } from './context';
 
 // PRIVATE
 export function useWindowResizeListener(onResize: OnResize): void {
-  // If react complains about setting a new context value
-  // while "rendering", swap with useEffect.
-  useMemo(() => {
+  useEffect(() => {
     function handleResize() {
       const width = window.innerWidth;
 
