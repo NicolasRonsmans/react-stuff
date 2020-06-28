@@ -1,10 +1,4 @@
-import { ResponsiveHashMap, Space, Width, Breakpoints } from '../types';
-
-export interface Overrides {
-  gutters?: ResponsiveHashMap<Space> | Space;
-  margins?: ResponsiveHashMap<Space> | Space;
-  widths?: ResponsiveHashMap<Width> | Width;
-}
+import { Breakpoints, Overrides } from '../types';
 
 interface Props extends Overrides {
   children: React.ReactNode;
@@ -24,11 +18,4 @@ export interface ResponsiveContainerProps extends Props {
 
 export interface ConsumerProps extends Props {
   overrides: Overrides;
-}
-
-export interface BreakpointValues {
-  gutter: Space;
-  margin: Space;
-  minWidth: Width;
-  width: Width;
 }

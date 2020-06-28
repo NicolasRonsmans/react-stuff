@@ -16,7 +16,7 @@
     "resolveJsonModule": true,
     "skipLibCheck": true,
     "target": "es5",
-    "types": ["node", "react"],
+    "types": ["node", "react", "styled-components"],
     "strict": true
   },
   "include": ["src"],

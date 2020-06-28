@@ -3,24 +3,23 @@ import React, { useMemo } from 'react';
 import { overrideAll } from '../utils';
 import { useBreakpoints } from '../Provider/hooks';
 
-import { ConsumerProps } from './types';
+import { ContainerProps } from './types';
 import { generateAbsoluteResponsiveness } from './utils';
 import { Container } from './styles';
 
-function ContainerRelativeToViewport({
+function GridRelativeToViewport({
   children,
   overrides,
-  isCentered,
-}: ConsumerProps): JSX.Element {
+}: ContainerProps): JSX.Element {
   const breakpoints = useBreakpoints();
   const responsiveness = useMemo(() => {
     const values = overrideAll(breakpoints, overrides);
 
     return generateAbsoluteResponsiveness(values);
   }, [breakpoints, overrides]);
-  const props = { children, responsiveness, isCentered };
+  const props = { children, responsiveness };
 
   return <Container {...props} />;
 }
 
-export default ContainerRelativeToViewport;
+export default GridRelativeToViewport;

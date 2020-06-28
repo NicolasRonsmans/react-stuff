@@ -19,7 +19,10 @@ function ResponsiveProvider({
   }
 
   const shouldUseDefaultBehaviour = !isRelativeToParent || !ResizeObserver;
-  const { sortedBreakpoints, reversedBreakpoints } = useSortedAndReversedBreakpoints(breakpoints);
+  const {
+    sortedBreakpoints,
+    reversedBreakpoints,
+  } = useSortedAndReversedBreakpoints(breakpoints);
   const [contextValue, setContextValue] = useState<ContextValues>({
     breakpointIndex: 0,
     width: 0,
@@ -30,15 +33,24 @@ function ResponsiveProvider({
   function handleResize(width: number) {
     setContextValue({
       ...contextValue,
-      breakpointIndex: getBreakpointReversedIndexFromWidth(width, reversedBreakpoints),
+      breakpointIndex: getBreakpointReversedIndexFromWidth(
+        width,
+        reversedBreakpoints
+      ),
       width,
     });
   }
 
   return (
     <Context.Provider value={contextValue}>
-      {shouldUseDefaultBehaviour && <RelativeToViewport onResize={handleResize}>{children}</RelativeToViewport>}
-      {!shouldUseDefaultBehaviour && <RelativeToParent onResize={handleResize}>{children}</RelativeToParent>}
+      {shouldUseDefaultBehaviour && (
+        <RelativeToViewport onResize={handleResize}>
+          {children}
+        </RelativeToViewport>
+      )}
+      {!shouldUseDefaultBehaviour && (
+        <RelativeToParent onResize={handleResize}>{children}</RelativeToParent>
+      )}
     </Context.Provider>
   );
 }

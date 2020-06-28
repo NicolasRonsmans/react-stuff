@@ -1,9 +1,9 @@
 import React from 'react';
 
-import ResponsiveProvider from '../Provider';
 import { useResponsiveContext } from '../Provider/hooks';
+import ResponsiveContainer from '../Container';
 
-import { ResponsiveContainerProps, ContainerProps } from './types';
+import { ResponsiveGridProps, ContainerProps } from './types';
 import ConsumerRelativeToParent from './RelativeToParent';
 import ConsumerRelativeToViewport from './RelativeToViewport';
 
@@ -17,29 +17,33 @@ function Container(props: ContainerProps): JSX.Element {
   return <ConsumerRelativeToViewport {...props} />;
 }
 
-function ResponsiveContainer({
+function Grid({
   children,
   breakpoints,
+  gutters,
   margins,
   widths,
   isRelativeToParent,
-  isCentered = true,
-}: ResponsiveContainerProps): JSX.Element {
-  const overrides = { margins, widths };
-  const props = { children, overrides, isCentered };
+  isCentered,
+}: ResponsiveGridProps): JSX.Element {
+  const overrides = { gutters };
+  const props = { children, overrides };
 
-  if (breakpoints || isRelativeToParent) {
+  if (breakpoints || margins || widths || isRelativeToParent || isCentered) {
     return (
-      <ResponsiveProvider
+      <ResponsiveContainer
         breakpoints={breakpoints}
+        margins={margins}
+        widths={widths}
         isRelativeToParent={isRelativeToParent}
+        isCentered={isCentered}
       >
         <Container {...props} />
-      </ResponsiveProvider>
+      </ResponsiveContainer>
     );
   }
 
   return <Container {...props} />;
 }
 
-export default ResponsiveContainer;
+export default Grid;

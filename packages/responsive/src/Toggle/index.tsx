@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { useBreakpoint } from '../Provider/hooks';
 import { isArray, getValueFromBreakpoint } from '../utils';
+import { useBreakpoint } from '../Provider/hooks';
 
 import { CreateToggleComponentReturn, ToggleComponentProps } from './types';
 
@@ -16,7 +16,12 @@ interface ResponsiveToggleProps {
   };
 }
 
-function ResponsiveToggle({ children, whitelist, blacklist, inline }: ResponsiveToggleProps): JSX.Element | null {
+function ResponsiveToggle({
+  children,
+  whitelist,
+  blacklist,
+  inline,
+}: ResponsiveToggleProps): JSX.Element | null {
   const breakpoint = useBreakpoint();
 
   if (isArray(whitelist)) {
@@ -48,8 +53,12 @@ function ResponsiveToggle({ children, whitelist, blacklist, inline }: Responsive
   return null;
 }
 
-export function createToggleComponent(value: string): CreateToggleComponentReturn {
-  return function ToggleComponent({ children }: ToggleComponentProps): JSX.Element | null {
+export function createToggleComponent(
+  value: string
+): CreateToggleComponentReturn {
+  return function ToggleComponent({
+    children,
+  }: ToggleComponentProps): JSX.Element | null {
     const breakpoint = useBreakpoint();
 
     if (breakpoint.name !== value) {

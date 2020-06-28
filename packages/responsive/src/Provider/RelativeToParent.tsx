@@ -3,7 +3,10 @@ import React, { useRef } from 'react';
 import { RelativeContainerProps } from './types';
 import { useResizeObserver } from './hooks';
 
-function RelativeToParent({ children, onResize }: RelativeContainerProps): JSX.Element {
+function RelativeToParent({
+  children,
+  onResize,
+}: RelativeContainerProps): JSX.Element {
   const ref = useRef<HTMLDivElement | null>(null);
   const props = { children, ref };
 

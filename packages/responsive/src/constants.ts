@@ -31,14 +31,16 @@ export const DEFAULT_BREAKPOINTS: Breakpoints = [
     gutter: '24px',
   },
 ];
-export const DEFAULT_BREAKPOINTS_WITHOUT_MOBILE_MARGIN: Breakpoints = DEFAULT_BREAKPOINTS.map((bp, index) => {
-  if (index !== 0) {
-    return bp;
+export const DEFAULT_BREAKPOINTS_WITHOUT_MOBILE_MARGIN: Breakpoints = DEFAULT_BREAKPOINTS.map(
+  (bp, index) => {
+    if (index !== 0) {
+      return bp;
+    }
+
+    const breakpoint = { ...bp };
+
+    delete breakpoint.margin;
+
+    return breakpoint;
   }
-
-  const breakpoint = { ...bp };
-
-  delete breakpoint.margin;
-
-  return breakpoint;
-});
+);

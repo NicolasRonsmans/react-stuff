@@ -9,7 +9,9 @@ interface UseSortedAndReversedBreakpointsReturn {
   reversedBreakpoints: Breakpoints;
 }
 
-export function useSortedAndReversedBreakpoints(breakpoints: Breakpoints): UseSortedAndReversedBreakpointsReturn {
+export function useSortedAndReversedBreakpoints(
+  breakpoints: Breakpoints
+): UseSortedAndReversedBreakpointsReturn {
   return useMemo(() => {
     const sortedBreakpoints = [...breakpoints].sort((a, b) => {
       if (!a.minWidth) {
@@ -47,7 +49,9 @@ interface UseRefDimensionsReturn<T> {
   };
 }
 
-export function useRefDimensions<T extends Element = Element>(): UseRefDimensionsReturn<T> {
+export function useRefDimensions<
+  T extends Element = Element
+>(): UseRefDimensionsReturn<T> {
   const ref = useRef<T>(null);
   const [dimensions, setDimensions] = useState({
     height: 0,

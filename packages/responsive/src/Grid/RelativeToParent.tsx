@@ -3,24 +3,23 @@ import React, { useMemo } from 'react';
 import { override } from '../utils';
 import { useBreakpoint } from '../Provider/hooks';
 
-import { ConsumerProps } from './types';
+import { ContainerProps } from './types';
 import { generateRelativeResponsiveness } from './utils';
 import { Container } from './styles';
 
-function ContainerRelativeToParent({
+function GridRelativeToParent({
   children,
   overrides,
-  isCentered,
-}: ConsumerProps): JSX.Element {
+}: ContainerProps): JSX.Element {
   const breakpoint = useBreakpoint();
   const responsiveness = useMemo(() => {
     const values = override(breakpoint, overrides);
 
-    return generateRelativeResponsiveness(values);
+    return generateRelativeResponsiveness(values.gutter);
   }, [breakpoint, overrides]);
-  const props = { children, responsiveness, isCentered };
+  const props = { children, responsiveness };
 
   return <Container {...props} />;
 }
 
-export default ContainerRelativeToParent;
+export default GridRelativeToParent;

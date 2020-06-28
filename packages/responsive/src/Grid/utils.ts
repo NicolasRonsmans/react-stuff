@@ -1,6 +1,4 @@
-import { Space } from '../../types';
-
-import { BreakpointValues } from '../types';
+import { Space, BreakpointValues } from '../types';
 
 export function generateRelativeResponsiveness(gutter: Space = 0): string {
   return `
@@ -13,7 +11,9 @@ export function generateRelativeResponsiveness(gutter: Space = 0): string {
   `;
 }
 
-export function generateAbsoluteResponsiveness(values: BreakpointValues[]): string {
+export function generateAbsoluteResponsiveness(
+  values: BreakpointValues[]
+): string {
   return values.reduce((str, value) => {
     if (!value.minWidth || !value.width) {
       return `

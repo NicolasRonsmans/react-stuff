@@ -2,7 +2,14 @@
   "extends": "../tsconfig",
   "compilerOptions": {
     "baseUrl": "src",
-    "types": ["jest", "node", "react", "resize-observer-browser", "styled-components", "testing-library__jest-dom"]
+    "types": [
+      "jest",
+      "node",
+      "react",
+      "resize-observer-browser",
+      "styled-components",
+      "testing-library__jest-dom"
+    ]
   },
   "include": ["src/**/*.ts", "src/**/*.tsx", "typings/**/*.d.ts"]
 }

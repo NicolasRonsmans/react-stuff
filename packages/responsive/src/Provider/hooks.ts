@@ -24,7 +24,10 @@ export function useWindowResizeListener(onResize: OnResize): void {
   }, []);
 }
 
-export function useResizeObserver(ref: React.RefObject<Element>, onResize: OnResize): void {
+export function useResizeObserver(
+  ref: React.RefObject<Element>,
+  onResize: OnResize
+): void {
   useEffect(() => {
     if (!ref?.current?.parentElement) {
       return;
