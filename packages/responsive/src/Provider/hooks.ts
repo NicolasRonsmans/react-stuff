@@ -4,22 +4,15 @@ import { Breakpoint, Breakpoints } from '../types';
 
 import { OnResize } from './types';
 import { Context, ContextValues } from './context';
+import windowResizeSubscriber from './windowResizeSubscriber';
 
 // PRIVATE
 export function useWindowResizeListener(onResize: OnResize): void {
-  useEffect(() => {
-    function handleResize() {
-      const width = window.innerWidth;
-
-      onResize(width);
-    }
-
-    handleResize();
-    window.addEventListener('resize', handleResize);
-
-    return () => window.removeEventListener('resize', handleResize);
+  useEffect(
+    () => windowResizeSubscriber(onResize),
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+    []
+  );
 }
 
 export function useResizeObserver(
