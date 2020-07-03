@@ -10,12 +10,13 @@ import { Container } from './styles';
 function GridRelativeToParent({
   children,
   overrides,
+  hasVerticalGutter,
 }: ContainerProps): JSX.Element {
   const breakpoint = useBreakpoint();
   const responsiveness = useMemo(() => {
     const values = override(breakpoint, overrides);
 
-    return generateRelativeResponsiveness(values.gutter);
+    return generateRelativeResponsiveness(values.gutter, hasVerticalGutter);
   }, [breakpoint, overrides]);
   const props = { children, responsiveness };
 

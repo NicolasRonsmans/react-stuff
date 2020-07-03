@@ -4,6 +4,9 @@ import { ResponsiveContainerProps } from '../Container/types';
 export interface ContainerProps {
   children: React.ReactNode;
   overrides: Overrides;
+  hasVerticalGutter: boolean;
 }
 
-export type ResponsiveGridProps = ResponsiveContainerProps;
+export interface ResponsiveGridProps extends ResponsiveContainerProps {
+  hasVerticalGutter?: boolean;
+}

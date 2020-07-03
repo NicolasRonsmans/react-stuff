@@ -13,7 +13,9 @@ module.exports = {
   },
   plugins: ['@typescript-eslint', 'react', 'react-hooks'],
   root: true,
-  rules: {},
+  rules: {
+    'react/prop-types': [0],
+  },
   settings: {
     react: {
       version: 'detect',

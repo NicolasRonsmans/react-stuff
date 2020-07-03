@@ -9,7 +9,7 @@ import windowResizeSubscriber from './windowResizeSubscriber';
 // PRIVATE
 export function useWindowResizeListener(onResize: OnResize): void {
   useEffect(
-    () => windowResizeSubscriber(onResize),
+    () => windowResizeSubscriber('resize', onResize),
     // eslint-disable-next-line react-hooks/exhaustive-deps
     []
   );

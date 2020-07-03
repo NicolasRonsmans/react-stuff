@@ -10,12 +10,13 @@ import { Container } from './styles';
 function GridRelativeToViewport({
   children,
   overrides,
+  hasVerticalGutter,
 }: ContainerProps): JSX.Element {
   const breakpoints = useBreakpoints();
   const responsiveness = useMemo(() => {
     const values = overrideAll(breakpoints, overrides);
 
-    return generateAbsoluteResponsiveness(values);
+    return generateAbsoluteResponsiveness(values, hasVerticalGutter);
   }, [breakpoints, overrides]);
   const props = { children, responsiveness };
 

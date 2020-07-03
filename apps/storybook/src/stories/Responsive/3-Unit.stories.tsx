@@ -14,7 +14,7 @@ export function RelativeToViewport(): JSX.Element {
   return (
     <Wrapper>
       <Viewport>
-        <ResponsiveGrid breakpoints={DEFAULT_BREAKPOINTS}>
+        <ResponsiveGrid breakpoints={DEFAULT_BREAKPOINTS} hasVerticalGutter>
           <ResponsiveUnit
             sizes={{
               xsmall: 4 / 4,
@@ -98,6 +98,7 @@ export function RelativeToParent(): JSX.Element {
         <ResponsiveGrid
           breakpoints={DEFAULT_BREAKPOINTS_WITHOUT_MOBILE_MARGIN}
           isRelativeToParent
+          hasVerticalGutter
         >
           <ResponsiveUnit
             sizes={{

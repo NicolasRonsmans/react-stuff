@@ -4,17 +4,17 @@ import ResponsiveProvider from '../Provider';
 import { useResponsiveContext } from '../Provider/hooks';
 
 import { ResponsiveContainerProps, ContainerProps } from './types';
-import ConsumerRelativeToParent from './RelativeToParent';
-import ConsumerRelativeToViewport from './RelativeToViewport';
+import RelativeToParent from './RelativeToParent';
+import RelativeToViewport from './RelativeToViewport';
 
 function Container(props: ContainerProps): JSX.Element {
   const { isRelativeToParent } = useResponsiveContext();
 
   if (isRelativeToParent) {
-    return <ConsumerRelativeToParent {...props} />;
+    return <RelativeToParent {...props} />;
   }
 
-  return <ConsumerRelativeToViewport {...props} />;
+  return <RelativeToViewport {...props} />;
 }
 
 function ResponsiveContainer({

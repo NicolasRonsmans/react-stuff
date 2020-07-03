@@ -4,7 +4,7 @@
     "clean": "npx rimraf -r **/node_modules packages/**/build **/*.tsbuildinfo",
     "compile": "ttsc --build ./packages/tsconfig.refs.json --force --verbose",
     "compile:watch": "yarn run compile --watch",
-    "build:storybook": "yarn run compile && yarn workspace @react-stuff/storybook build",
+    "build:storybook": "yarn workspace @react-stuff/storybook build",
     "start:storybook": "yarn compile && concurrently -n 'tsc,storybook' 'yarn compile:watch' 'yarn workspace @react-stuff/storybook start'",
     "publish:responsive": "yarn compile && yarn lint && yarn test && yarn workspace @react-stuff/responsive publish --access=public --scope=@react-stuff",
     "lint": "yarn workspaces run lint",

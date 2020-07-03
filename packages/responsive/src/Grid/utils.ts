@@ -1,25 +1,31 @@
 import { Space, BreakpointValues } from '../types';
 
-export function generateRelativeResponsiveness(gutter: Space = 0): string {
+export function generateRelativeResponsiveness(
+  gutter: Space = 0,
+  hasVerticalGutter: boolean
+): string {
   return `
-    margin: calc(${gutter} / -2);
+    margin: ${!hasVerticalGutter ? '0' : ''} calc(${gutter} / -2);
     width: calc(100% + ${gutter});
 
     > * {
-      padding: calc(${gutter} / 2);
+      padding: ${!hasVerticalGutter ? '0' : ''} calc(${gutter} / 2);
     }
   `;
 }
 
 export function generateAbsoluteResponsiveness(
-  values: BreakpointValues[]
+  values: BreakpointValues[],
+  hasVerticalGutter: boolean
 ): string {
   return values.reduce((str, value) => {
+    const css = generateRelativeResponsiveness(value.gutter, hasVerticalGutter);
+
     if (!value.minWidth || !value.width) {
       return `
         ${str}
 
-        ${generateRelativeResponsiveness(value.gutter)}
+        ${css}
       `;
     }
 
@@ -27,7 +33,7 @@ export function generateAbsoluteResponsiveness(
       ${str}
 
       @media (min-width: ${value.minWidth}) {
-        ${generateRelativeResponsiveness(value.gutter)}
+        ${css}
       }
     `;
   }, '');
