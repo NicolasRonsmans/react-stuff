@@ -22,8 +22,8 @@
     "typescript": "^3.9.5"
   },
   "scripts": {
-    "start": "start-storybook -p 6006 --quiet --ci",
-    "build": "build-storybook -o build/",
+    "start": "yarn && start-storybook -p 6006 --quiet --ci",
+    "build": "yarn install --focus && build-storybook -o build/",
     "lint": "yarn lint:types && yarn lint:eslint && yarn lint:format",
     "lint:eslint": "eslint ./src --ext .ts,.tsx",
     "lint:format": "prettier-check '{*.{js,json,md},src/**/*.{ts,tsx}}'",
